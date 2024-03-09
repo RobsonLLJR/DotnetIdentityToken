@@ -1,6 +1,7 @@
 global using Microsoft.AspNetCore.Identity;
 global using DotnetIdentityToken.Data.Data;
 using Microsoft.EntityFrameworkCore;
+using DotnetIdentityToken.Core.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 var identityConnection = builder.Configuration.GetConnectionString("IdentityConnection");
 
@@ -28,6 +29,7 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
             "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
     options.User.RequireUniqueEmail = false;
 })
+    .AddErrorDescriber<IdentityPortugueseMessages>()
     .AddEntityFrameworkStores<ContextIdentity>();
 
 var app = builder.Build();

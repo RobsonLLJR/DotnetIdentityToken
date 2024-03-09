@@ -14,12 +14,9 @@ namespace DotnetIdentityToken.Core.Controllers
             _signInManager = signInManager;
         }
 
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
-        [HttpPost]
+        [HttpGet("Register")]
+        public IActionResult Register() => View();
+        [HttpPost("Register")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
         {
@@ -38,6 +35,32 @@ namespace DotnetIdentityToken.Core.Controllers
                 }
             }
             return View(model);
+        }
+        [HttpGet("Login")]
+        public IActionResult Login() => View();
+        [HttpPost("Login")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginModel model)
+        {
+            if(ModelState.IsValid) 
+            {
+                Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction(nameof(Index), "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Tentativa de login inválida.");
+                }
+            }
+            return View(model);
+        }
+        [HttpGet("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction(nameof(Index), "Home");
         }
     }
 }

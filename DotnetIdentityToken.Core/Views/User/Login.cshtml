@@ -1,0 +1,38 @@
+﻿@using DotnetIdentityToken.Core.Models.UserModels
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/identity.css" />
+}
+<body>
+    <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="~/images/user_pic.png" />
+            <p id="profile-name" class="profile-name-card">@ViewData["Title"]</p>
+            <form asp-action="login" class="form-signin" id="account" method="post">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <span id="reauth-usuario" class="reauth-usuario"></span>
+                <input asp-for="UserName" class="form-control" id="inputUsuario" autocomplete="username" aria-required="true" placeholder="Usuário" required autofocus>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+                <input asp-for="Password" class="form-control" id="inputSenha" autocomplete="current-password" aria-required="true" placeholder="Senha" required autofocus>
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <div id="remember" class="checkbox">
+                    <label asp-for="RememberMe" class="form-label">
+                        <input class="form-check-input" asp-for="RememberMe"> Manter Conectado
+                    </label>
+                </div>
+                <br />
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" id="login-submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

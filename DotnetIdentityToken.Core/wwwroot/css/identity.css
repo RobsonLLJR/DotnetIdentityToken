@@ -19,8 +19,8 @@
 }
 
 /*
-         * Card component
-         */
+     * Card component
+     */
 .card {
     background-color: #F7F7F7;
     /* just in case there no content*/
@@ -47,19 +47,14 @@
 }
 
 /*
-         * Form styles
-         */
+     * Form styles
+     */
 .profile-name-card {
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
-    /*margin: 10px 0 0;*/
+    margin: 10px 0 0;
     min-height: 1em;
-    height: 65px;
-    margin: 0 auto 10px;
-    display: block;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
 }
 
 .reauth-usuario {
