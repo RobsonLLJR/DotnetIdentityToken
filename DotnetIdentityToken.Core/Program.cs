@@ -8,7 +8,7 @@ var identityConnection = builder.Configuration.GetConnectionString("IdentityConn
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ContextIdentity>(options => options.UseSqlServer(identityConnection));
 
-builder.Services.AddIdentity<IdentityOptions, IdentityRole>(options =>
+builder.Services.AddIdentity<User, IdentityRole>(options =>
 {
     // Default Password settings.
     options.Password.RequireDigit = false;

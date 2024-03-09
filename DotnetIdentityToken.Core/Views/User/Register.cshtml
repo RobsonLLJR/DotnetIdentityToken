@@ -1,0 +1,36 @@
+﻿@using DotnetIdentityToken.Core.Models.UserModels
+@model RegisterModel
+@{
+    ViewData["Title"] = "Registrar";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/identity.css" />
+}
+<body>
+    <div class="container">
+        <div class="card card-container">
+            <h4 id="profile-name" class="profile-name-card">@ViewData["Title"]</h4>
+            <form id="registerForm" class="form-signin" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="FirstName" class="form-control" id="inputFirstName" autocomplete="firstName" aria-required="true" placeholder="Primeiro Nome" required autofocus>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+                <input asp-for="LastName" class="form-control" id="inputLastName" autocomplete="lastName" aria-required="true" placeholder="Sobrenome" required autofocus>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+                <input asp-for="Surname" class="form-control" id="inputSurname" autocomplete="surname" aria-required="true" placeholder="Apelido" required autofocus>
+                <span asp-validation-for="Surname" class="text-danger"></span>
+                <input asp-for="UserName" class="form-control" id="inputUsuario" autocomplete="username" aria-required="true" placeholder="Usuário" required autofocus>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+                <input asp-for="Password" class="form-control" autocomplete="new-password" autocomplete="senha" aria-required="true" placeholder="Senha" required autofocus />
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" autocomplete="confirmaSenha" aria-required="true" placeholder="Confirma senha" required autofocus />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                <br />
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" id="login-submit">Registrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
