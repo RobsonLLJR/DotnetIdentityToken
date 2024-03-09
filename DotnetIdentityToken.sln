@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetIdentityToken.Core", "DotnetIdentityToken.Core\DotnetIdentityToken.Core.csproj", "{DBD85DB7-8691-4908-B148-27B170D5C31E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetIdentityToken.Application", "DotnetIdentityToken.Application\DotnetIdentityToken.Application.csproj", "{1B2EFCFB-BC29-473E-8EE1-B4EDC0DCC4F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetIdentityToken.Data", "DotnetIdentityToken.Data\DotnetIdentityToken.Data.csproj", "{372A39AE-D1EA-4CA3-AE67-9DBA7E79181C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{DBD85DB7-8691-4908-B148-27B170D5C31E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBD85DB7-8691-4908-B148-27B170D5C31E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBD85DB7-8691-4908-B148-27B170D5C31E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B2EFCFB-BC29-473E-8EE1-B4EDC0DCC4F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B2EFCFB-BC29-473E-8EE1-B4EDC0DCC4F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B2EFCFB-BC29-473E-8EE1-B4EDC0DCC4F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B2EFCFB-BC29-473E-8EE1-B4EDC0DCC4F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{372A39AE-D1EA-4CA3-AE67-9DBA7E79181C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{372A39AE-D1EA-4CA3-AE67-9DBA7E79181C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{372A39AE-D1EA-4CA3-AE67-9DBA7E79181C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{372A39AE-D1EA-4CA3-AE67-9DBA7E79181C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
