@@ -7,6 +7,7 @@ var identityConnection = builder.Configuration.GetConnectionString("IdentityConn
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ContextIdentity>(options => options.UseSqlServer(identityConnection));
+builder.Services.AddAntiforgery(opt => opt.HeaderName = "XSRF-TOKEN");
 
 builder.Services.AddIdentity<User, IdentityRole>(options =>
 {

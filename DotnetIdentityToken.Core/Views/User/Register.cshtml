@@ -11,7 +11,8 @@
     <div class="container">
         <div class="card card-container">
             <h4 id="profile-name" class="profile-name-card">@ViewData["Title"]</h4>
-            <form id="registerForm" class="form-signin" method="post">
+            <form asp-action="register" id="registerForm" class="form-signin" method="post">
+                @Html.AntiForgeryToken()
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input asp-for="FirstName" class="form-control" id="inputFirstName" autocomplete="firstName" aria-required="true" placeholder="Primeiro Nome" required autofocus>
                 <span asp-validation-for="FirstName" class="text-danger"></span>

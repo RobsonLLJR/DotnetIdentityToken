@@ -1,13 +1,45 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DotnetIdentityToken.Core.Models.UserModels;
+using DotnetIdentityToken.Data.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DotnetIdentityToken.Core.Controllers
 {
+    [Route("User")]
     public class UserController : ControllerBase
     {
-        [HttpGet("Registro")]
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
+        public UserController(UserManager<User> userManager, SignInManager<User> signInManager)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+
+        [HttpGet]
         public IActionResult Register()
         {
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                User newUser = new() { FirstName = model.FirstName, LastName = model.LastName, Surname = model.Surname, UserName = model.Surname };
+                IdentityResult result = await _userManager.CreateAsync(newUser, model.Password);
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignInAsync(newUser, isPersistent: false);
+                    return RedirectToAction(nameof(Index), "Home");
+                }
+                foreach(var error in result.Errors) 
+                {
+                    ModelState.AddModelError(string.Empty, error.Description); 
+                }
+            }
+            return View(model);
         }
     }
 }
