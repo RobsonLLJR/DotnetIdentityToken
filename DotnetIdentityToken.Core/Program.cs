@@ -1,7 +1,11 @@
+using DotnetIdentityToken.Data.Data;
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
+var identityConnection = builder.Configuration.GetConnectionString("IdentityConnection");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ContextIdentity>(options => options.UseSqlServer(identityConnection));
 
 var app = builder.Build();
 

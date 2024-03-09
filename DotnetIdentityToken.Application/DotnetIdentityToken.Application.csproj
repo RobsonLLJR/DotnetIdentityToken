@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetIdentityToken.Data\DotnetIdentityToken.Data.csproj" />
+  </ItemGroup>
+
 </Project>
