@@ -1,5 +1,5 @@
-using DotnetIdentityToken.Data.Data;
-using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Identity;
+global using DotnetIdentityToken.Data.Data;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 var identityConnection = builder.Configuration.GetConnectionString("IdentityConnection");

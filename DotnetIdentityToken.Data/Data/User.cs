@@ -11,7 +11,6 @@ namespace DotnetIdentityToken.Data.Data
         public string FirstName { get; set; }
         [StringLength(100)]
         [MaxLength(100)]
-        [Required]
         public string LastName { get; set; }
         [StringLength(15)]
         [MaxLength(15)]

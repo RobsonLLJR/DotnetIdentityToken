@@ -12,7 +12,6 @@ namespace DotnetIdentityToken.Core.Models.UserModels
         [StringLength(100)]
         [MaxLength(100)]
         [Display(Name = "Sobrenome")]
-        [Required(ErrorMessage = "Sobrenome é obrigatório")]
         public string LastName { get; set; }
         [StringLength(15)]
         [MaxLength(15)]

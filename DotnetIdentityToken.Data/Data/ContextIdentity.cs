@@ -14,7 +14,7 @@ namespace DotnetIdentityToken.Data.Data
             {
                 entity.ToTable(name: "User");
                 entity.Property(x => x.FirstName).IsRequired();
-                entity.Property(x => x.LastName).IsRequired();
+                entity.Property(x => x.LastName).IsRequired(false);
                 entity.Property(x => x.Surname).IsRequired(false);
                 entity.Property(x => x.UserName).IsRequired();
             });

@@ -1,7 +1,7 @@
 ﻿@using DotnetIdentityToken.Core.Models.UserModels
 @model RegisterModel
 @{
-    ViewData["Title"] = "Registrar";
+    ViewData["Title"] = "Novo Usuário";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
 @section Styles {
@@ -16,9 +16,9 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input asp-for="FirstName" class="form-control" id="inputFirstName" autocomplete="firstName" aria-required="true" placeholder="Primeiro Nome" required autofocus>
                 <span asp-validation-for="FirstName" class="text-danger"></span>
-                <input asp-for="LastName" class="form-control" id="inputLastName" autocomplete="lastName" aria-required="true" placeholder="Sobrenome" required autofocus>
+                <input asp-for="LastName" class="form-control" id="inputLastName" autocomplete="lastName" aria-required="true" placeholder="Sobrenome" autofocus>
                 <span asp-validation-for="LastName" class="text-danger"></span>
-                <input asp-for="Surname" class="form-control" id="inputSurname" autocomplete="surname" aria-required="true" placeholder="Apelido" required autofocus>
+                <input asp-for="Surname" class="form-control" id="inputSurname" autocomplete="surname" aria-required="true" placeholder="Apelido" autofocus>
                 <span asp-validation-for="Surname" class="text-danger"></span>
                 <input asp-for="UserName" class="form-control" id="inputUsuario" autocomplete="username" aria-required="true" placeholder="Usuário" required autofocus>
                 <span asp-validation-for="UserName" class="text-danger"></span>

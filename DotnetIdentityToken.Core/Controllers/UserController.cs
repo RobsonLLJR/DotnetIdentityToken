@@ -1,6 +1,4 @@
 ﻿using DotnetIdentityToken.Core.Models.UserModels;
-using DotnetIdentityToken.Data.Data;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotnetIdentityToken.Core.Controllers
@@ -27,7 +25,7 @@ namespace DotnetIdentityToken.Core.Controllers
         {
             if (ModelState.IsValid)
             {
-                User newUser = new() { FirstName = model.FirstName, LastName = model.LastName, Surname = model.Surname, UserName = model.Surname };
+                User newUser = new() { FirstName = model.FirstName, LastName = model.LastName, Surname = model.Surname, UserName = model.UserName };
                 IdentityResult result = await _userManager.CreateAsync(newUser, model.Password);
                 if (result.Succeeded)
                 {
