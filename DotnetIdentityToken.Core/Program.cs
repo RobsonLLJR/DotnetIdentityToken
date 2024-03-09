@@ -1,4 +1,5 @@
 using DotnetIdentityToken.Data.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 var identityConnection = builder.Configuration.GetConnectionString("IdentityConnection");
@@ -6,6 +7,27 @@ var identityConnection = builder.Configuration.GetConnectionString("IdentityConn
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ContextIdentity>(options => options.UseSqlServer(identityConnection));
+
+builder.Services.AddIdentity<IdentityOptions, IdentityRole>(options =>
+{
+    // Default Password settings.
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequiredUniqueChars = 1;
+
+    // Default SignIn settings.
+    options.SignIn.RequireConfirmedEmail = false;
+    options.SignIn.RequireConfirmedPhoneNumber = false;
+
+    // Default User settings.
+    options.User.AllowedUserNameCharacters =
+            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+    options.User.RequireUniqueEmail = false;
+})
+    .AddEntityFrameworkStores<ContextIdentity>();
 
 var app = builder.Build();
 
